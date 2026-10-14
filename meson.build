@@ -46,6 +46,11 @@ flags = [
   '-fno-strict-aliasing',
   '-ffp-contract=off',
   '-ftrivial-auto-var-init=zero',
+  # the same file from any checkout on any day: VICE prints the build's date
+  # and time when it starts, and file names reach the binary
+  '-Wno-builtin-macro-redefined', '-D__DATE__="Oct  3 2026"', '-D__TIME__="02:28:37"',
+  '-ffile-prefix-map=' + meson.current_source_dir() + '=.',
+  '-ffile-prefix-map=' + meson.current_build_dir() + '=build',
 ]
 add_project_arguments(defs + flags, language: ['c', 'cpp'])
 
