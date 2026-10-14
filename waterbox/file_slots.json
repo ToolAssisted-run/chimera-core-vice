@@ -1,0 +1,24 @@
+{
+ "_comment": "This file lists the kinds of file a project of this core can hold. Chimera's New Project window is built from it. Each kind is called a slot. A project file records its files under the slot ids used here.",
+ "slots": [
+  {
+   "id": "game",
+   "title": "Game",
+   "min": 1,
+   "max": 20,
+   "formats": [
+    "d64",
+    "g64",
+    "x64",
+    "d71",
+    "d81",
+    "t64",
+    "tap",
+    "crt",
+    "prg",
+    "p00"
+   ],
+   "help": "The game's files: disk images (.d64, .g64, .x64, .d71, .d81), tape images (.t64, .tap), a cartridge (.crt) or a program (.prg, .p00). The first is the one autostarted; the others wait their turn in drive 8, for the games that ask for another disk (Previous Disk, Next Disk, Eject Disk). Your files are never changed: the C64 writes to copies of them in its memory, and Export Save Data writes out the ones it changed."
+  }
+ ]
+}

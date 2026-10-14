@@ -1,4 +1,4 @@
-The numbered patches to extern/libretro-uae, applied by
+The numbered patches to extern/vice (vice-libretro), applied by
 waterbox/apply-patches.sh and written by waterbox/make-patches.sh. Each
 change is inside "#ifdef CHIMERA_CORE" with a comment that says what it
-changes and why, except 0001, which only adds a missing include.
+changes and why.

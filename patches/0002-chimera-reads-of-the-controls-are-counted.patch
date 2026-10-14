@@ -1,0 +1,34 @@
+diff --git a/vice/src/c64/c64cia1.c b/vice/src/c64/c64cia1.c
+index 70f22490fb..9fbff51732 100644
+--- a/vice/src/c64/c64cia1.c
++++ b/vice/src/c64/c64cia1.c
+@@ -290,6 +290,14 @@ static uint8_t read_ciapa(cia_context_t *cia_context)
+     uint8_t msk;
+     uint8_t m, tmp;
+     int i;
++#ifdef CHIMERA_CORE
++    {
++        /* the program read the keyboard or the joysticks: not a lag frame
++           (waterbox/cinterface.c counts these each frame) */
++        extern int chimera_input_reads;
++        chimera_input_reads++;
++    }
++#endif
+ 
+     DBGA(("PA ddra:%02x pa:%02x ddrb:%02x pb:%02x ",
+           cia_context->c_cia[CIA_DDRA], cia_context->c_cia[CIA_PRA],
+@@ -370,6 +378,14 @@ static uint8_t read_ciapb(cia_context_t *cia_context)
+     uint8_t msk, tmp;
+     uint8_t m;
+     int i;
++#ifdef CHIMERA_CORE
++    {
++        /* the program read the keyboard or the joysticks: not a lag frame
++           (waterbox/cinterface.c counts these each frame) */
++        extern int chimera_input_reads;
++        chimera_input_reads++;
++    }
++#endif
+ 
+     /* loop over rows,
+        pull down all bits connected to a row which is output and active.

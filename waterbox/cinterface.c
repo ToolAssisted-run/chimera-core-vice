@@ -31,6 +31,11 @@
 void joystick_set_value_absolute(unsigned int joyport, uint16_t value);   /* joyport/joystick.h */
 void keyboard_set_keyarr(int row, int col, int value);                    /* keyboard.h */
 void machine_set_restore_key(int v);                                      /* machine.h */
+int file_system_attach_disk(unsigned int unit, unsigned int drive, const char *filename);  /* attach.h */
+void file_system_detach_disk(unsigned int unit, unsigned int drive);
+void datasette_control(int port, int command);                            /* datasette.h */
+void drive_gcr_data_writeback_all(void);                                  /* drive.h */
+enum { kDsStop = 0, kDsStart = 1, kDsForward = 2, kDsRewind = 3 };     /* DATASETTE_CONTROL_* */
 
 /* ---- what went wrong, for Chimera to show -------------------------------- */
 static char g_loadError[512];
@@ -98,13 +103,18 @@ static int g_audioFrames;
 /* ---- the controls -------------------------------------------------------
  * Two joysticks and the keyboard. P1's joystick is in control port 2 by
  * default, where most games read the joystick; the setting P1 Port moves it
- * to port 1, and P2's to the other. The keyboard is the C64's own 66 keys,
- * each set in the keyboard matrix at its row and column (VICE's numbering,
- * the C64's: row is the CIA port A bit that selects it); RESTORE is not in
- * the matrix but on the NMI line. */
+ * to port 1, and P2's to the other. The keyboard is the C64's own keys: the
+ * 64 of its keyboard matrix, each set at its row and column (VICE's
+ * numbering, the C64's: row is the CIA port A bit that selects it), and
+ * RESTORE, which is not in the matrix but on the NMI line. SHIFT LOCK is not
+ * a key of its own: it latches Left Shift down. */
 enum {
 	kP1Up, kP1Down, kP1Left, kP1Right, kP1Fire,
 	kP2Up, kP2Down, kP2Left, kP2Right, kP2Fire,
+	/* the drive: a selector over the project's disks, and the disk out */
+	kPreviousDisk, kNextDisk, kEjectDisk,
+	/* the datasette's keys */
+	kTapePlay, kTapeStop, kTapeRewind, kTapeForward,
 	kFirstKey
 };
 static const struct { const char *name; int row, col; } kKeys[] = {
@@ -124,14 +134,21 @@ static const struct { const char *name; int row, col; } kKeys[] = {
 static const char *const kPortButtonNames[kFirstKey] = {
 	"P1 Up", "P1 Down", "P1 Left", "P1 Right", "P1 Fire",
 	"P2 Up", "P2 Down", "P2 Left", "P2 Right", "P2 Fire",
+	"Previous Disk", "Next Disk", "Eject Disk",
+	"Tape Play", "Tape Stop", "Tape Rewind", "Tape Forward",
 };
 static char g_keyNames[KEY_COUNT][24];
 static int g_held[BUTTON_COUNT], g_was[BUTTON_COUNT];
 static int g_inputRead;
-extern int chimera_input_reads;   /* c64cia1.c (patch 0002) */
-int chimera_input_reads;
+int chimera_input_reads;   /* counted by c64cia1.c (patch 0002) */
 
 static int g_p1Port = 2;   /* the control port P1's joystick is in */
+
+/* ---- the game ----------------------------------------------------------- */
+#define MAX_FILES 20
+static char g_files[MAX_FILES][256];
+static int g_fileCount, g_selected;
+#define g_game g_files[0]
 
 static uint16_t joystick_bits(int up)
 {
@@ -154,6 +171,22 @@ static void give_controls(void)
 		else
 			keyboard_set_keyarr(kKeys[k].row, kKeys[k].col, now);
 	}
+	/* the drive: Previous and Next move the selector (on the press); Eject
+	 * takes the disk out for as long as it is held, and puts the selected
+	 * one in when it is let go */
+	if (g_held[kPreviousDisk] && !g_was[kPreviousDisk] && g_fileCount > 0)
+		g_selected = (g_selected + g_fileCount - 1) % g_fileCount;
+	if (g_held[kNextDisk] && !g_was[kNextDisk] && g_fileCount > 0)
+		g_selected = (g_selected + 1) % g_fileCount;
+	if (g_held[kEjectDisk] && !g_was[kEjectDisk])
+		file_system_detach_disk(8, 0);
+	else if (!g_held[kEjectDisk] && g_was[kEjectDisk] && g_fileCount > 0)
+		file_system_attach_disk(8, 0, g_files[g_selected]);
+	/* the datasette's keys, on the press: tape port 1 (TAPEPORT_PORT_1) */
+	static const int tape[4][2] = { { kTapePlay, kDsStart }, { kTapeStop, kDsStop }, { kTapeRewind, kDsRewind }, { kTapeForward, kDsForward } };
+	for (int t = 0; t < 4; t++)
+		if (g_held[tape[t][0]] && !g_was[tape[t][0]])
+			datasette_control(0, tape[t][1]);
 	memcpy(g_was, g_held, sizeof g_was);
 }
 
@@ -243,7 +276,16 @@ static bool environment(unsigned cmd, void *data)
 	{
 		const struct retro_core_options_v2 *o = data;
 		for (const struct retro_core_option_v2_definition *d = o ? o->definitions : NULL; d && d->key; d++)
+		{
 			take_option(d->key, d->default_value ? d->default_value : d->values[0].value);
+			if (getenv("CHIMERA_VICE_OPTIONS"))
+			{
+				fprintf(stderr, "values %s default '%s':", d->key, d->default_value ? d->default_value : "");
+				for (int v = 0; v < RETRO_NUM_CORE_OPTION_VALUES_MAX && d->values[v].value; v++)
+					fprintf(stderr, " '%s'", d->values[v].value);
+				fprintf(stderr, "\n");
+			}
+		}
 		return true;
 	}
 	case RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2_INTL:
@@ -331,8 +373,6 @@ struct memory_area { const char *name; uint8_t *bytes; int64_t size; };
 static struct memory_area g_memory[8];
 static int g_memoryCount;
 
-/* ---- the game ----------------------------------------------------------- */
-static char g_game[256];
 
 /* ---- Chimera's calls ---------------------------------------------------- */
 ECL_EXPORT const char *GetLoadError(void) { return g_loadError; }
@@ -342,9 +382,12 @@ ECL_EXPORT const char *DescribeDips(void) { return ""; }
 ECL_EXPORT int Init(void)
 {
 	g_loadError[0] = '\0';
-	if (wbx_slot_count("game") > 0)
-		wbx_slot_name("game", 0, g_game, sizeof g_game);
-	else
+	g_fileCount = wbx_slot_count("game");
+	if (g_fileCount > MAX_FILES) g_fileCount = MAX_FILES;
+	for (int i = 0; i < g_fileCount; i++)
+		wbx_slot_name("game", i, g_files[i], sizeof g_files[i]);
+	g_selected = 0;
+	if (g_fileCount == 0)
 	{
 		/* a game opened with no project is mounted under its own name */
 		FILE *f = fopen("rom.name", "rb");
@@ -353,6 +396,7 @@ ECL_EXPORT int Init(void)
 			size_t got = fread(g_game, 1, sizeof g_game - 1, f);
 			g_game[got] = '\0';
 			fclose(f);
+			g_fileCount = g_game[0] != '\0';
 		}
 	}
 	if (!g_game[0])
@@ -401,7 +445,12 @@ ECL_EXPORT const char *GetButtonName(int32_t i)
 	if (i < 0 || i >= BUTTON_COUNT) return "";
 	return i < kFirstKey ? kPortButtonNames[i] : g_keyNames[i - kFirstKey];
 }
-ECL_EXPORT int IsButtonActive(int32_t i) { return i >= 0 && i < BUTTON_COUNT; }
+ECL_EXPORT int IsButtonActive(int32_t i)
+{
+	if (i < 0 || i >= BUTTON_COUNT) return 0;
+	if (i == kPreviousDisk || i == kNextDisk) return g_fileCount > 1;
+	return 1;
+}
 ECL_EXPORT void SetButton(int32_t i, int32_t state)
 {
 	if (i >= 0 && i < BUTTON_COUNT) g_held[i] = state != 0;
@@ -455,6 +504,10 @@ static int64_t g_saveSize[16];
 static int g_saveCount;
 ECL_EXPORT int32_t GetSaveDataFileCount(void)
 {
+	/* the 1541 keeps the track under its head and writes it to the disk
+	 * image when the head moves off it or the disk comes out: what it has
+	 * written goes into the image first */
+	drive_gcr_data_writeback_all();
 	g_saveCount = 0;
 	while (g_saveCount < 16 && chimera_vfs_changed(g_saveCount, &g_saveName[g_saveCount], &g_saveData[g_saveCount], &g_saveSize[g_saveCount]))
 		g_saveCount++;

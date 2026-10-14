@@ -25,6 +25,10 @@ int fstatat(int dirfd, const char *path, struct stat *st, int flags)
 		}
 		return 0;
 	}
+	/* "./name" is "name": the current folder is "." (getcwd below), and the
+	 * sandbox's files have no folder */
+	while (path && path[0] == '.' && path[1] == '/')
+		path += 2;
 	if (!path || !*path) {
 		errno = ENOENT;
 		return -1;

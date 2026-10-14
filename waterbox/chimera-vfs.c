@@ -28,6 +28,7 @@ struct memfile {
 	int64_t size, cap;
 	int exists;     /* removed files keep their slot */
 	int changed;    /* written since it was read */
+	int project;    /* one of the project's files (read from the sandbox) */
 };
 
 struct retro_vfs_file_handle {
@@ -90,6 +91,7 @@ static struct memfile *load(const char *path)
 	}
 	fclose(h);
 	f->exists = 1;
+	f->project = 1;
 	g_fileCount++;
 	return f;
 }
@@ -220,13 +222,14 @@ int chimera_vfs_answer(struct retro_vfs_interface_info *info)
 	return 1;
 }
 
-/* Export Save Data: the files that were written to and still exist */
+/* Export Save Data: the project's files that were written to and still
+ * exist (not the files VICE writes for itself, such as its settings) */
 int chimera_vfs_changed(int i, const char **name, const uint8_t **data, int64_t *size)
 {
 	int k = 0;
 	for (int j = 0; j < g_fileCount; j++)
 	{
-		if (!g_files[j].changed || !g_files[j].exists) continue;
+		if (!g_files[j].changed || !g_files[j].exists || !g_files[j].project) continue;
 		if (k++ != i) continue;
 		*name = g_files[j].name;
 		*data = g_files[j].data;

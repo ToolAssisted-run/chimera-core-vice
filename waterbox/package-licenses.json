@@ -1,0 +1,60 @@
+{
+  "package": "vice",
+  "effectiveTerms": "GPL-2.0-or-later",
+  "commercialUse": "allowed under the GPL",
+  "note": "The core is VICE (vice-libretro, the libretro port of VICE 3.10, GPL-2.0-or-later), its cycle-exact C64 (x64sc), with this repository's integration (MIT). The program is distributed under the GPL version 2 or later. Compiled in from VICE's own tree: reSID and reSID-fp (GPL-2.0-or-later), zlib (zlib licence), the LZMA SDK by Igor Pavlov (public domain), libretro-common (MIT); and musl's math functions (MIT). The C64's and the 1541's ROMs are compiled in as data, as VICE distributes them; VICE's README says they are copyright Commodore Business Machines. The package contains no game.",
+  "components": [
+    {
+      "name": "chimera-core-vice (integration)",
+      "license": "MIT, and GPL-2.0-or-later for patches/",
+      "url": "https://github.com/ToolAssisted-run/chimera-core-vice",
+      "commit": "{selfCommit}",
+      "file": "LICENSE",
+      "sourceUrl": "https://github.com/ToolAssisted-run/chimera-core-vice/archive/{commit}.tar.gz"
+    },
+    {
+      "name": "VICE (vice-libretro)",
+      "license": "GPL-2.0-or-later",
+      "url": "https://github.com/libretro/vice-libretro",
+      "commit": "{submodule:extern/vice}",
+      "file": "extern/vice/COPYING",
+      "sourceUrl": "https://github.com/libretro/vice-libretro/archive/{commit}.tar.gz"
+    },
+    {
+      "name": "reSID (in VICE)",
+      "license": "GPL-2.0-or-later",
+      "url": "https://github.com/libsidplayfp/resid",
+      "file": "extern/vice/vice/src/resid/COPYING"
+    },
+    {
+      "name": "zlib (in vice-libretro)",
+      "license": "Zlib",
+      "url": "https://zlib.net/",
+      "file": "extern/vice/deps/libz/zlib.h"
+    },
+    {
+      "name": "LZMA SDK (in vice-libretro)",
+      "license": "public domain",
+      "url": "https://www.7-zip.org/sdk.html",
+      "file": "extern/vice/deps/7zip/LzmaDec.c"
+    },
+    {
+      "name": "libretro-common (in vice-libretro)",
+      "license": "MIT",
+      "url": "https://github.com/libretro/libretro-common",
+      "file": "extern/vice/libretro-common/file/file_path.c"
+    },
+    {
+      "name": "musl's math functions (waterbox/libm)",
+      "license": "MIT",
+      "url": "https://musl.libc.org/",
+      "file": "waterbox/libm/COPYRIGHT-musl"
+    },
+    {
+      "name": "The C64's and the 1541's ROMs (in VICE, vice/data)",
+      "license": "copyright Commodore Business Machines; distributed with VICE",
+      "url": "https://vice-emu.sourceforge.io/",
+      "file": "extern/vice/vice/README"
+    }
+  ]
+}

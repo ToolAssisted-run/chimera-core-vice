@@ -12,6 +12,7 @@ tree="$root/extern/vice"
 # name | files (space separated), in the order the patches apply
 series='
 0001-chimera-the-core-gives-the-controls|libretro/libretro-mapper.c
+0002-chimera-reads-of-the-controls-are-counted|vice/src/c64/c64cia1.c
 '
 
 # a patch that did not change keeps its file (and its time: the test script
