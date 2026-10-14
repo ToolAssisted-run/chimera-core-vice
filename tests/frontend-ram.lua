@@ -46,12 +46,12 @@ for line in io.lines(jobPath) do
 end
 meta.metaPath = job.meta
 
--- this core's systems: the Amiga, and the CD32 and CDTV
+-- this core's system
 local sysid = emu.getsystemid()
-if sysid ~= "AMIGA" and sysid ~= "CD32" and sysid ~= "CDTV" then
+if sysid ~= "C64" then
 	finish("ERROR", "wrong system id: " .. tostring(sysid))
 end
-if emu.getcorename() ~= "PUAE" then
+if emu.getcorename() ~= "VICE" then
 	finish("ERROR", "wrong core: " .. tostring(emu.getcorename()))
 end
 

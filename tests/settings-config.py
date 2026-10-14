@@ -5,9 +5,9 @@
 
 The settings are stored the way Chimera's settings window stores them: a map
 of name to value under the adapter's type name. The firmware is a map of a
-firmware id ("amiga-os-130.rom") to a file, stored the way the Firmware
+firmware id to a file, stored the way the Firmware
 window stores it, under this core's name. The core is also made the one
-Chimera picks for the Amiga, because the Cores folder may hold
+Chimera picks for the C64, because the Cores folder may hold
 another.
 """
 import json
@@ -19,7 +19,7 @@ cfg.setdefault("CoreSettings", {})["Chimera.Emulation.Common.Waterbox.WaterboxCo
 }
 firmware = cfg.setdefault("CoreFirmware", {})
 for firmware_id, path in json.loads(sys.argv[4] if len(sys.argv) > 4 else "{}").items():
-    firmware["PUAE/" + firmware_id] = path
-for system in ("AMIGA",):
-    cfg.setdefault("DefaultCores", {})[system] = "PUAE"
+    firmware["VICE/" + firmware_id] = path
+for system in ("C64",):
+    cfg.setdefault("DefaultCores", {})[system] = "VICE"
 json.dump(cfg, open(sys.argv[2], "w"), indent=2)
