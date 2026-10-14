@@ -1,0 +1,3 @@
+[submodule "extern/vice"]
+	path = extern/vice
+	url = https://github.com/libretro/vice-libretro.git

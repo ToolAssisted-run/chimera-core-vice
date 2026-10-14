@@ -1,0 +1,13 @@
+musl's own math functions for the ones the core calls whose last bit differs
+between C libraries: sin, cos, sinf, exp, log and pow. They are compiled into
+both builds, so the native reference computes what the sandbox (whose C
+library is musl) computes. VICE's 1541 drive turns its wobble through sinf()
+into whole cycles (drive/rotation.c), so one bit of difference there changes
+the run; reSID's resampling filter is built with sin, cos, exp, log and pow.
+
+The files are musl 1.2.0's, as miniBox carries it (extern/musl): src/math/
+and src/internal/libm.h, arch/generic/fp_arch.h. One change: the
+kernels __sin, __cos, __tan (and their long double twins) are renamed
+__musl_sin and so on, because glibc's math.h declares functions of those
+names for the native build. musl is under
+the MIT licence: COPYRIGHT-musl.

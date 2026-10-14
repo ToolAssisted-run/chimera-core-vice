@@ -1,0 +1,4 @@
+build/
+waterbox/bin/
+tests/roms-local/
+tests/games-local/

@@ -1,0 +1,18 @@
+diff --git a/libretro/libretro-mapper.c b/libretro/libretro-mapper.c
+index 89f18333d0..7325fc7a46 100644
+--- a/libretro/libretro-mapper.c
++++ b/libretro/libretro-mapper.c
+@@ -1049,6 +1049,13 @@ int process_keyboard_pass_through()
+ void retro_poll_event()
+ {
+    uint8_t i, j;
++#ifdef CHIMERA_CORE
++   /* The core gives the C64 its controls itself, each frame before the frame
++      runs (waterbox/cinterface.c): the joysticks into the control ports and
++      the keys into the keyboard matrix. The mapper, which would rebuild the
++      ports from a libretro controller every frame, stands aside. */
++   return;
++#endif
+    for (j = 0; j < RETRO_DEVICES; j++)
+    {
+       if (libretro_supports_bitmasks)
