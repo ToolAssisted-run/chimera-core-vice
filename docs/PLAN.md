@@ -55,8 +55,8 @@ joysticks are read; a frame without one is a lag frame.
 **The ROMs.** VICE carries the C64's KERNAL, BASIC and character ROMs and
 the 1541's DOS ROM (Commodore's copyright, says its README) and the core is
 built with them, as upstream builds it; so no firmware is asked for. The
-owner decides whether the package may carry them (the Jaguar's boot ROMs
-were decided the same way, "as upstream").
+package carries them (user-decided, 2026-10-15), as the Jaguar's boot ROMs
+were decided, "as upstream".
 
 **Measured** (test script, `waterbox/run-gate.sh`, with a program and a
 disk the tests write themselves):
