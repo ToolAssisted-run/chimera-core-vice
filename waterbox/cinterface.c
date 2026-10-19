@@ -111,29 +111,39 @@ static int g_audioFrames;
 enum {
 	kP1Up, kP1Down, kP1Left, kP1Right, kP1Fire,
 	kP2Up, kP2Down, kP2Left, kP2Right, kP2Fire,
-	/* the drive: a selector over the project's disks, and the disk out */
-	kPreviousDisk, kNextDisk, kEjectDisk,
-	/* the datasette's keys */
-	kTapePlay, kTapeStop, kTapeRewind, kTapeForward,
 	kFirstKey
 };
+/* The keys in the order they sit on the C64, row by row from the top, so
+ * that the controller window and TAStudio list them the way a person looks
+ * for them (chimera#310); each is set at its matrix row and column. */
 static const struct { const char *name; int row, col; } kKeys[] = {
-	{ "Del", 0, 0 }, { "Return", 0, 1 }, { "Cursor Right", 0, 2 }, { "F7", 0, 3 },
-	{ "F1", 0, 4 }, { "F3", 0, 5 }, { "F5", 0, 6 }, { "Cursor Down", 0, 7 },
-	{ "3", 1, 0 }, { "W", 1, 1 }, { "A", 1, 2 }, { "4", 1, 3 }, { "Z", 1, 4 }, { "S", 1, 5 }, { "E", 1, 6 }, { "Left Shift", 1, 7 },
-	{ "5", 2, 0 }, { "R", 2, 1 }, { "D", 2, 2 }, { "6", 2, 3 }, { "C", 2, 4 }, { "F", 2, 5 }, { "T", 2, 6 }, { "X", 2, 7 },
-	{ "7", 3, 0 }, { "Y", 3, 1 }, { "G", 3, 2 }, { "8", 3, 3 }, { "B", 3, 4 }, { "H", 3, 5 }, { "U", 3, 6 }, { "V", 3, 7 },
-	{ "9", 4, 0 }, { "I", 4, 1 }, { "J", 4, 2 }, { "0", 4, 3 }, { "M", 4, 4 }, { "K", 4, 5 }, { "O", 4, 6 }, { "N", 4, 7 },
-	{ "+", 5, 0 }, { "P", 5, 1 }, { "L", 5, 2 }, { "-", 5, 3 }, { ".", 5, 4 }, { ":", 5, 5 }, { "@", 5, 6 }, { ",", 5, 7 },
-	{ "Pound", 6, 0 }, { "*", 6, 1 }, { ";", 6, 2 }, { "Home", 6, 3 }, { "Right Shift", 6, 4 }, { "=", 6, 5 }, { "Up Arrow", 6, 6 }, { "/", 6, 7 },
-	{ "1", 7, 0 }, { "Left Arrow", 7, 1 }, { "Ctrl", 7, 2 }, { "2", 7, 3 }, { "Space", 7, 4 }, { "C=", 7, 5 }, { "Q", 7, 6 }, { "Run/Stop", 7, 7 },
+	{ "Left Arrow", 7, 1 }, { "1", 7, 0 }, { "2", 7, 3 }, { "3", 1, 0 }, { "4", 1, 3 }, { "5", 2, 0 }, { "6", 2, 3 },
+	{ "7", 3, 0 }, { "8", 3, 3 }, { "9", 4, 0 }, { "0", 4, 3 }, { "+", 5, 0 }, { "-", 5, 3 }, { "Pound", 6, 0 },
+	{ "Home", 6, 3 }, { "Del", 0, 0 },
+	{ "Ctrl", 7, 2 }, { "Q", 7, 6 }, { "W", 1, 1 }, { "E", 1, 6 }, { "R", 2, 1 }, { "T", 2, 6 }, { "Y", 3, 1 },
+	{ "U", 3, 6 }, { "I", 4, 1 }, { "O", 4, 6 }, { "P", 5, 1 }, { "@", 5, 6 }, { "*", 6, 1 }, { "Up Arrow", 6, 6 },
 	{ "Restore", -1, -1 },
+	{ "Run/Stop", 7, 7 }, { "A", 1, 2 }, { "S", 1, 5 }, { "D", 2, 2 }, { "F", 2, 5 }, { "G", 3, 2 }, { "H", 3, 5 },
+	{ "J", 4, 2 }, { "K", 4, 5 }, { "L", 5, 2 }, { ":", 5, 5 }, { ";", 6, 2 }, { "=", 6, 5 }, { "Return", 0, 1 },
+	{ "C=", 7, 5 }, { "Left Shift", 1, 7 }, { "Z", 1, 4 }, { "X", 2, 7 }, { "C", 2, 4 }, { "V", 3, 7 }, { "B", 3, 4 },
+	{ "N", 4, 7 }, { "M", 4, 4 }, { ",", 5, 7 }, { ".", 5, 4 }, { "/", 6, 7 }, { "Right Shift", 6, 4 },
+	{ "Cursor Down", 0, 7 }, { "Cursor Right", 0, 2 },
+	{ "Space", 7, 4 }, { "F1", 0, 4 }, { "F3", 0, 5 }, { "F5", 0, 6 }, { "F7", 0, 3 },
 };
 #define KEY_COUNT ((int)(sizeof kKeys / sizeof kKeys[0]))
-#define BUTTON_COUNT (kFirstKey + KEY_COUNT)
+/* after the keys, as on the other cores: the drive's selector over the
+ * project's disks and the disk out, and the datasette's keys */
+enum {
+	kPreviousDisk = kFirstKey + KEY_COUNT, kNextDisk, kEjectDisk,
+	kTapePlay, kTapeStop, kTapeRewind, kTapeForward,
+	kButtonCount
+};
+#define BUTTON_COUNT kButtonCount
 static const char *const kPortButtonNames[kFirstKey] = {
 	"P1 Up", "P1 Down", "P1 Left", "P1 Right", "P1 Fire",
 	"P2 Up", "P2 Down", "P2 Left", "P2 Right", "P2 Fire",
+};
+static const char *const kDriveTapeNames[BUTTON_COUNT - kPreviousDisk] = {
 	"Previous Disk", "Next Disk", "Eject Disk",
 	"Tape Play", "Tape Stop", "Tape Rewind", "Tape Forward",
 };
@@ -443,7 +453,9 @@ ECL_EXPORT int GetButtonCount(void) { return BUTTON_COUNT; }
 ECL_EXPORT const char *GetButtonName(int32_t i)
 {
 	if (i < 0 || i >= BUTTON_COUNT) return "";
-	return i < kFirstKey ? kPortButtonNames[i] : g_keyNames[i - kFirstKey];
+	if (i < kFirstKey) return kPortButtonNames[i];
+	if (i < kPreviousDisk) return g_keyNames[i - kFirstKey];
+	return kDriveTapeNames[i - kPreviousDisk];
 }
 ECL_EXPORT int IsButtonActive(int32_t i)
 {

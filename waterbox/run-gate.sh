@@ -168,19 +168,38 @@ held p1p2 p1 "P2 Up"
 check "c64:p1-port" "with P1 Port set to 1, P1's joystick is read in port 1 ($(byte "$work/p1up.ram" 3); port 2 $(byte "$work/p1up.ram" 2)) and P2's in port 2 ($(byte "$work/p1p2.ram" 2))" \
 	[ "$(byte "$work/p1up.ram" 3)$(byte "$work/p1up.ram" 2)$(byte "$work/p1p2.ram" 2)" = feff"fe" ]
 
-# every key of the matrix, held alone, is the one bit of its row and column
-# (the order of the keys in the core is the matrix's, row by row)
+# every key of the matrix, held alone, is the one bit of its row and column.
+# The C64's matrix by the names on its keys, row by row (row 0 is CIA 1 port A
+# bit 0), as the machine's documentation gives it; the core lists the keys as
+# they sit on the keyboard instead (chimera#310), so each is found by its name.
+matrix_cell() { # matrix_cell <key name>: "<row> <col>", or nothing
+	awk -v want="$1" -F'|' '{ for (c = 1; c <= NF; c++) if ($c == want) { print NR - 1, c - 1; exit } }' <<'MATRIX'
+Del|Return|Cursor Right|F7|F1|F3|F5|Cursor Down
+3|W|A|4|Z|S|E|Left Shift
+5|R|D|6|C|F|T|X
+7|Y|G|8|B|H|U|V
+9|I|J|0|M|K|O|N
++|P|L|-|.|:|@|,
+Pound|*|;|Home|Right Shift|=|Up Arrow|/
+1|Left Arrow|Ctrl|2|Space|C=|Q|Run/Stop
+MATRIX
+}
 keysbad=""; nkeys=0
-for k in $(grep "^panel .*'Key " "$work/panel.out" | grep -v "'Key Restore'" | awk '{print $2}'); do
+grep "^panel .*'Key " "$work/panel.out" | grep -v "'Key Restore'" > "$work/keys.txt"
+while IFS= read -r line; do
+	k="$(echo "$line" | awk '{print $2}')"
+	name="$(echo "$line" | sed -n "s/^panel [0-9]* 'Key \([^']*\)'.*/\1/p")"
+	cell="$(matrix_cell "$name")"
+	if [ -z "$cell" ]; then keysbad="$keysbad $k($name: not in the matrix)"; nkeys=$((nkeys + 1)); continue; fi
+	row="${cell% *}"; col="${cell#* }"
 	nat key pr --frames 560 --press "$k":500:100 --dump-domain RAM "$work/key.ram"
-	row=$((nkeys / 8)); col=$((nkeys % 8))
 	want=""
 	for r in 0 1 2 3 4 5 6 7; do
 		if [ $r -eq $row ]; then want="$want$(printf '%02x' $((255 - (1 << col))))"; else want="${want}ff"; fi
 	done
 	[ "$(bytes "$work/key.ram" 8 8)" = "$want" ] || keysbad="$keysbad $k"
 	nkeys=$((nkeys + 1))
-done
+done < "$work/keys.txt"
 nat rst pr --frames 560 --press "$(index pr "Key Restore")":500:10 --dump-domain RAM "$work/rst.ram"
 nat rst2 pr --frames 560 --press "$(index pr "Key Restore")":480:10 --press "$(index pr "Key Restore")":520:10 --dump-domain RAM "$work/rst2.ram"
 check "c64:keyboard" "each of the $nkeys keys of the matrix held alone is the one bit of its row and column in the program's scan${keysbad:+ (wrong: panel$keysbad)}; RESTORE pressed once gives one NMI ($(byte "$work/rst.ram" 4)), twice two ($(byte "$work/rst2.ram" 4)), none held $(byte "$work/pr-idle.ram" 4)" \

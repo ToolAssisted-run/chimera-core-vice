@@ -23,6 +23,10 @@ control ports from a libretro controller every frame; patch 0001 makes it
 stand aside. The core sets the two ports itself (P1 in port 2 by default)
 and the C64's keyboard matrix (the 64 keys at their row and column; RESTORE
 on the NMI line). SHIFT LOCK is not a key: it latches Left Shift down.
+The keys are listed as they sit on the keyboard, row by row from the top, and
+the disk and tape controls come after them (chimera#310); a movie made with the
+earlier, matrix order still plays, because Chimera reads a movie by the names
+in its first line.
 Patch 0002 counts reads of CIA 1's ports, where the keyboard and the
 joysticks are read; a frame without one is a lag frame.
 
