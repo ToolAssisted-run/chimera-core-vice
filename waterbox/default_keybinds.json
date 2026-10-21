@@ -1,15 +1,15 @@
 {
   "AllTrollers": {
     "C64 Controls": {
-      "P1 Up": "Keypad8, J1 POV1U, X1 DpadUp, X1 LStickUp",
-      "P1 Down": "Keypad2, J1 POV1D, X1 DpadDown, X1 LStickDown",
-      "P1 Left": "Keypad4, J1 POV1L, X1 DpadLeft, X1 LStickLeft",
-      "P1 Right": "Keypad6, J1 POV1R, X1 DpadRight, X1 LStickRight",
+      "P1 Up": "Keypad8, J1 POV0U, X1 DpadUp, X1 LStickUp",
+      "P1 Down": "Keypad2, J1 POV0D, X1 DpadDown, X1 LStickDown",
+      "P1 Left": "Keypad4, J1 POV0L, X1 DpadLeft, X1 LStickLeft",
+      "P1 Right": "Keypad6, J1 POV0R, X1 DpadRight, X1 LStickRight",
       "P1 Fire": "Keypad0, J1 B1, X1 A",
-      "P2 Up": "J2 POV1U, X2 DpadUp, X2 LStickUp",
-      "P2 Down": "J2 POV1D, X2 DpadDown, X2 LStickDown",
-      "P2 Left": "J2 POV1L, X2 DpadLeft, X2 LStickLeft",
-      "P2 Right": "J2 POV1R, X2 DpadRight, X2 LStickRight",
+      "P2 Up": "J2 POV0U, X2 DpadUp, X2 LStickUp",
+      "P2 Down": "J2 POV0D, X2 DpadDown, X2 LStickDown",
+      "P2 Left": "J2 POV0L, X2 DpadLeft, X2 LStickLeft",
+      "P2 Right": "J2 POV0R, X2 DpadRight, X2 LStickRight",
       "P2 Fire": "J2 B1, X2 A",
       "Previous Disk": "",
       "Next Disk": "",
