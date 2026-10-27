@@ -4,7 +4,7 @@
 # control it has a binding entry for must carry the package's, and the game's
 # coin must be among them.
 #
-# Usage: check-keybinds.py <configuration written by Chimera> <package default_keybinds.json> <panel> <a control the game has>
+# Usage: check-keybinds.py <the machine's bindings (dump-controls.lua)> <package default_keybinds.json> <panel> <a control the game has>
 import json
 import sys
 
