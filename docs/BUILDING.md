@@ -91,10 +91,8 @@ Copy the files there; do not link them from where you keep them. Without
 `CHIMERA_ROOT` the tests that need Chimera are skipped.
 
 `bash tests/run-frontend.sh --chimera-root <chimera checkout>` is the window
-test: the package in Chimera's own window (under Mono, on a private Xvfb
-display). Mono limits the length of a path it makes under the temporary
-folder, so give it a short one (`TMPDIR=$PWD/build/t`) when the default is
-long.
+test: the package in Chimera's own window (run headless: it needs no
+display; Chimera's `tools/ci-chimera.sh` builds it).
 
 ## What CI does
 

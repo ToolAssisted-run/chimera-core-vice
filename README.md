@@ -5,7 +5,7 @@ frontend for tool-assisted speedruns, for the **Commodore 64**. It is built
 on [VICE](https://vice-emu.sourceforge.io/) through its libretro port,
 [vice-libretro](https://github.com/libretro/vice-libretro), and runs VICE's
 cycle-exact C64 (x64sc). It produces one file, `vice.chimeraCore`, that goes
-in Chimera's `Cores` folder.
+in Chimera's `cores` folder.
 
 ## Status
 
