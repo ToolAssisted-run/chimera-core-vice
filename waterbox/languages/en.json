@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "No game file is in the project.",
+		"error.not_started": "VICE did not start with '%1'.",
+		"setting.autostart": "Autostart",
+		"setting.autostart.about": "'enabled' loads and runs the game when the C64 is switched on, as VICE does it: it types LOAD and RUN for a disk or a tape (pressing the tape's PLAY), or puts a program straight in memory. 'disabled' leaves the C64 at its READY prompt with the game's disk in the drive or tape in the datasette. It is part of the machine, so a movie needs the same value.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "Which C64, as VICE builds it: the original C64, the C64C (its later board, with the 8580 SID), the SX-64, the PET64, the C64 Games System, the Japanese C64; PAL (Europe) or NTSC (America, Japan). The 'auto' ones are PAL or NTSC as the game's file name says ('NTSC' in it makes an NTSC machine). It is part of the machine, so a movie needs the same value.",
+		"setting.drive_true_emulation": "True Drive Emulation",
+		"setting.drive_true_emulation.about": "'enabled' runs the 1541 drive's own processor and its DOS, cycle by cycle, as the hardware does: fast loaders and copy protections work. 'disabled' answers the C64's disk commands directly, much faster, and many games do not load. It is part of the machine, so a movie needs the same value.",
+		"setting.initialtime": "Starting Clock",
+		"setting.initialtime.about": "What the computer's clock says when the C64 is switched on, in seconds since 1970 (Unix time); it then runs with the machine. VICE takes its random numbers from it (the pattern the RAM holds when it is switched on, and the wait before autostart), and so does the clock of a cartridge that has one. The default is the first of January 2000. This is a setting, and not your computer's clock, so that a movie plays back the same on any day. It is part of the machine, so a movie needs the same value.",
+		"setting.p1port": "P1 Port",
+		"setting.p1port.about": "Which control port P1's joystick is in; P2's is in the other. Most games read the joystick in port 2. It is part of the machine, so a movie needs the same value.",
+		"setting.sid_model": "SID Model",
+		"setting.sid_model.about": "The sound chip: 'default' is the Model's own (the 6581 in the C64, the 8580 in the C64C); 8580RD is an 8580 with the digi boost. It changes the sound and what a program reads from the SID. It is part of the machine, so a movie needs the same value.",
+		"slot.game": "Game",
+		"slot.game.help": "The game's files: disk images (.d64, .g64, .x64, .d71, .d81), tape images (.t64, .tap), a cartridge (.crt) or a program (.prg, .p00). The first is the one autostarted; the others wait their turn in drive 8, for the games that ask for another disk (Previous Disk, Next Disk, Eject Disk). Your files are never changed: the C64 writes to copies of them in its memory, and Export Save Data writes out the ones it changed."
+	}
+}

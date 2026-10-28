@@ -3,7 +3,7 @@
  "slots": [
   {
    "id": "game",
-   "title": "Game",
+   "title": "slot.game",
    "min": 1,
    "max": 20,
    "formats": [
@@ -18,7 +18,7 @@
     "prg",
     "p00"
    ],
-   "help": "The game's files: disk images (.d64, .g64, .x64, .d71, .d81), tape images (.t64, .tap), a cartridge (.crt) or a program (.prg, .p00). The first is the one autostarted; the others wait their turn in drive 8, for the games that ask for another disk (Previous Disk, Next Disk, Eject Disk). Your files are never changed: the C64 writes to copies of them in its memory, and Export Save Data writes out the ones it changed."
+   "help": "slot.game.help"
   }
  ]
 }

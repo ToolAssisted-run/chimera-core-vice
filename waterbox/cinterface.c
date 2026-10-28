@@ -38,6 +38,11 @@ void drive_gcr_data_writeback_all(void);                                  /* dri
 enum { kDsStop = 0, kDsStart = 1, kDsForward = 2, kDsRewind = 3 };     /* DATASETTE_CONTROL_* */
 
 /* ---- what went wrong, for Chimera to show -------------------------------- */
+/* A text a person reads is a key of languages/en.json, each of its
+ * arguments after a TEXT_ARG (chimera docs/translations.md). TEXT_ARG is a
+ * string of its own so the byte after it is never read as more of its hex. */
+#define TEXT_ARG "\x1f"
+
 static char g_loadError[512];
 
 /* ---- the emulator's options ------------------------------------------------
@@ -411,7 +416,7 @@ ECL_EXPORT int Init(void)
 	}
 	if (!g_game[0])
 	{
-		snprintf(g_loadError, sizeof g_loadError, "no game was given");
+		snprintf(g_loadError, sizeof g_loadError, "error.no_file");
 		return 0;
 	}
 	{
@@ -434,7 +439,7 @@ ECL_EXPORT int Init(void)
 	struct retro_game_info info = { g_game, NULL, 0, NULL };
 	if (!retro_load_game(&info))
 	{
-		snprintf(g_loadError, sizeof g_loadError, "the emulator did not start with %s", g_game);
+		snprintf(g_loadError, sizeof g_loadError, "error.not_started" TEXT_ARG "%s", g_game);
 		return 0;
 	}
 	if (getenv("CHIMERA_VICE_OPTIONS"))

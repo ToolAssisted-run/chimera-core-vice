@@ -269,7 +269,7 @@ check "c64:disk-change" "with Next Disk and Eject Disk pressed before the progra
 mkdir -p "$work/nogame"
 printf '{"game":[]}' > "$work/nogame/slots"; printf '{}' > "$work/nogame/settings"
 nat nogame nogame --frames 1
-check "refused:no-game" "a C64 with no game is refused, and says so" grep -q "Init failed.*no game was given" "$work/nogame.out" "$work/nogame.err"
+check "refused:no-game" "a C64 with no game is refused, and says so" grep -q "Init failed.*error.no_file" "$work/nogame.out" "$work/nogame.err"
 
 # ------------------------------------------------- Chimera's engine
 runner="$chimera_root/build/dll/chimera-run"
