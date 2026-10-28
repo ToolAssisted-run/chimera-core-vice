@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Aucun fichier de jeu n'est dans le projet.",
+		"error.not_started": "VICE n'a pas démarré avec '%1'.",
+		"setting.autostart": "Démarrage automatique",
+		"setting.autostart.about": "'enabled' charge et lance le jeu à la mise sous tension du C64, comme le fait VICE : il tape LOAD puis RUN pour une disquette ou une cassette (en appuyant sur PLAY de la cassette), ou place directement un programme en mémoire. 'disabled' laisse le C64 à son invite READY, avec la disquette du jeu dans le lecteur ou la cassette dans le datasette. Il fait partie de la machine : un film a besoin de la même valeur.",
+		"setting.c64_model": "Modèle",
+		"setting.c64_model.about": "Quel C64, tel que VICE le construit : le C64 d'origine, le C64C (sa carte plus récente, avec le SID 8580), le SX-64, le PET64, le C64 Games System, le C64 japonais ; en PAL (Europe) ou NTSC (Amérique, Japon). Les modèles 'auto' sont en PAL ou en NTSC selon le nom du fichier du jeu (« NTSC » dans le nom donne une machine NTSC). Il fait partie de la machine : un film a besoin de la même valeur.",
+		"setting.drive_true_emulation": "Émulation réelle du lecteur",
+		"setting.drive_true_emulation.about": "'enabled' fait tourner le processeur du lecteur 1541 et son DOS, cycle par cycle, comme le fait le matériel : les chargements rapides et les protections contre la copie fonctionnent. 'disabled' répond directement aux commandes disque du C64, beaucoup plus vite, et beaucoup de jeux ne se chargent pas. Il fait partie de la machine : un film a besoin de la même valeur.",
+		"setting.initialtime": "Horloge de départ",
+		"setting.initialtime.about": "L'heure affichée par l'horloge de l'ordinateur à la mise sous tension du C64, en secondes depuis 1970 (temps Unix) ; elle avance ensuite avec la machine. VICE tire ses nombres aléatoires de cette horloge (la configuration de la RAM à la mise sous tension, et l'attente avant le démarrage automatique), et l'horloge d'une cartouche qui en a une fait de même. La valeur par défaut est le 1er janvier 2000. Il s'agit d'un réglage, et non de l'horloge de votre ordinateur, pour qu'un film se rejoue de la même façon quel que soit le jour. Il fait partie de la machine : un film a besoin de la même valeur.",
+		"setting.p1port": "Port du P1",
+		"setting.p1port.about": "Le port de manette où est branché le joystick du P1 ; celui du P2 est sur l'autre. La plupart des jeux lisent le joystick du port 2. Il fait partie de la machine : un film a besoin de la même valeur.",
+		"setting.sid_model": "Modèle de SID",
+		"setting.sid_model.about": "La puce sonore : 'default' est celle du Modèle (la 6581 dans le C64, la 8580 dans le C64C) ; 8580RD est une 8580 avec le renforcement numérique. Cela change le son et ce qu'un programme lit du SID. Il fait partie de la machine : un film a besoin de la même valeur.",
+		"slot.game": "Jeu",
+		"slot.game.help": "Les fichiers du jeu : des images de disquettes (.d64, .g64, .x64, .d71, .d81), des images de cassettes (.t64, .tap), une cartouche (.crt) ou un programme (.prg, .p00). Le premier est celui qui démarre automatiquement ; les autres attendent leur tour dans le lecteur 8, pour les jeux qui demandent une autre disquette (Disquette précédente, Disquette suivante, Éjecter la disquette). Vos fichiers ne sont jamais modifiés : le C64 écrit dans des copies en mémoire, et Exporter les données de sauvegarde écrit ceux qui ont été modifiés."
+	}
+}

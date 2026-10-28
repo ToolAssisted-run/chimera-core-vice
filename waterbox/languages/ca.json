@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "No hi ha cap fitxer de joc al projecte.",
+		"error.not_started": "VICE no s'ha iniciat amb '%1'.",
+		"setting.autostart": "Inici automàtic",
+		"setting.autostart.about": "'enabled' carrega i executa el joc quan s'encén el C64, tal com ho fa VICE: escriu LOAD i RUN per a un disc o una cinta (prement PLAY del magnetòfon), o posa un programa directament a la memòria. 'disabled' deixa el C64 al seu indicador READY amb el disc del joc a la unitat o la cinta al datasette. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "Quin C64, tal com el construeix VICE: el C64 original, el C64C (la seua placa posterior, amb el SID 8580), el SX-64, el PET64, el C64 Games System, el C64 japonès; PAL (Europa) o NTSC (Amèrica, Japó). Els de 'auto' són PAL o NTSC segons diu el nom del fitxer del joc ('NTSC' al nom fa una màquina NTSC). Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.drive_true_emulation": "Emulació real de la unitat",
+		"setting.drive_true_emulation.about": "'enabled' executa el propi processador de la unitat 1541 i el seu DOS, cicle a cicle, tal com ho fa el maquinari: els carregadors ràpids i les proteccions contra còpia funcionen. 'disabled' respon directament les ordres de disc del C64, molt més ràpid, i molts jocs no es carreguen. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.initialtime": "Rellotge d'inici",
+		"setting.initialtime.about": "Què diu el rellotge de l'ordinador quan s'encén el C64, en segons des de 1970 (temps Unix); després va amb la màquina. VICE pren d'ell els seus nombres aleatoris (el patró que té la RAM en encendre's, i l'espera abans de l'inici automàtic), i també ho fa el rellotge d'un cartutx que en tingui. El valor per defecte és l'u de gener del 2000. Això és una configuració, i no el rellotge del vostre ordinador, perquè una pel·lícula es reprodueixi igual qualsevol dia. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.p1port": "Connector P1",
+		"setting.p1port.about": "A quin connector de control és el joystick del P1; el del P2 és a l'altre. La majoria de jocs llegeixen el joystick del connector 2. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.sid_model": "Model de SID",
+		"setting.sid_model.about": "El xip de so: 'default' és el propi del Model (el 6581 al C64, el 8580 al C64C); 8580RD és un 8580 amb el reforç digital. Canvia el so i el que un programa llegeix del SID. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"slot.game": "Joc",
+		"slot.game.help": "Els fitxers del joc: imatges de disquet (.d64, .g64, .x64, .d71, .d81), imatges de cinta (.t64, .tap), un cartutx (.crt) o un programa (.prg, .p00). El primer és el que s'inicia automàticament; els altres esperen el seu torn a la unitat 8, per als jocs que en demanen un altre disc (Disc anterior, Disc següent, Expulsa el disc). Els vostres fitxers mai no es canvien: el C64 escriu a còpies d'ells a la seua memòria, i Exporta les dades desades escriu els que ha canviat."
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Niciun fișier de joc nu este în proiect.",
+		"error.not_started": "VICE nu a pornit cu „%1”.",
+		"setting.autostart": "Pornire automată",
+		"setting.autostart.about": "„enabled” încarcă și pornește jocul când C64 este pornit, cum face VICE: tastează LOAD și RUN pentru un disc sau o casetă (apasă PLAY al casetofonului), sau pune un program direct în memorie. „disabled” lasă C64 la promptul său READY, cu discul jocului în unitate sau caseta în casetofon. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.c64_model": "Modelul",
+		"setting.c64_model.about": "Care C64, cum o construiește VICE: C64 original, C64C (placa lui mai târzie, cu SID-ul 8580), SX-64, PET64, C64 Games System, C64 japonez; PAL (Europa) sau NTSC (America, Japonia). Variantele „auto” sunt PAL sau NTSC după cum spune numele fișierului jocului („NTSC” în el face o mașină NTSC). Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.drive_true_emulation": "Emularea reală a unității",
+		"setting.drive_true_emulation.about": "„enabled” rulează procesorul propriu al unității 1541 și DOS-ul ei, ciclu cu ciclu, cum face hardware-ul: încărcătoarele rapide și protecțiile la copiere merg. „disabled” răspunde direct la comenzile de disc ale C64, mult mai repede, dar multe jocuri nu se încarcă. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.initialtime": "Ceasul de pornire",
+		"setting.initialtime.about": "Ce arată ceasul calculatorului când C64 este pornit, în secunde de la 1970 (ora Unix); apoi merge cu mașina. VICE își ia din el numerele aleatoare (modelul pe care îl are RAM-ul când este pornit și așteptarea dinainte de pornirea automată), și le ia și ceasul unui cartuș care are unul. Implicit este 1 ianuarie 2000. Aceasta este o setare, nu ceasul calculatorului tău, pentru ca o înregistrare să se redea la fel în orice zi. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.p1port": "Portul P1",
+		"setting.p1port.about": "În ce port de control este joystick-ul lui P1; al lui P2 este în celălalt. Cele mai multe jocuri citesc joystick-ul din portul 2. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.sid_model": "Modelul SID",
+		"setting.sid_model.about": "Cipul de sunet: „default” este cel al Model-ului (6581 în C64, 8580 în C64C); 8580RD este un 8580 cu amplificarea digitală. Schimbă sunetul și ce citește un program din SID. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"slot.game": "Joc",
+		"slot.game.help": "Fișierele jocului: imagini de disc (.d64, .g64, .x64, .d71, .d81), imagini de casetă (.t64, .tap), un cartuș (.crt) sau un program (.prg, .p00). Primul este cel pornit automat; celelalte așteaptă rândul lor în unitatea 8, pentru jocurile care cer alt disc (Previous Disk, Next Disk, Eject Disk). Fișierele tale nu sunt schimbate niciodată: C64 scrie în copii ale lor din memorie, iar Export Save Data scrie pe cele schimbate."
+	}
+}

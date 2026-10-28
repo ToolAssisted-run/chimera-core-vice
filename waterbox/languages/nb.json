@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Ingen spillfil er i prosjektet.",
+		"error.not_started": "VICE startet ikke med '%1'.",
+		"setting.autostart": "Automatisk start",
+		"setting.autostart.about": "'enabled' laster og kjører spillet når C64 slås på, slik VICE gjør det: den skriver LOAD og RUN for en disk eller et bånd (ved å trykke båndets PLAY), eller legger et program rett i minnet. 'disabled' lar C64 stå ved sin READY-ledetekst med spillets disk i stasjonen eller båndet i datasettet. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.c64_model": "Modell",
+		"setting.c64_model.about": "Hvilken C64, slik VICE bygger den: den opprinnelige C64, C64C (den senere kortversjonen, med SID 8580), SX-64, PET64, C64 Games System, den japanske C64; PAL (Europa) eller NTSC (Amerika, Japan). De 'auto'-valgene er PAL eller NTSC etter som spillets filnavn sier ('NTSC' i det gjør en NTSC-maskin). Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.drive_true_emulation": "Ekte stasjonsemulering",
+		"setting.drive_true_emulation.about": "'enabled' kjører 1541-stasjonens egen prosessor og dens DOS, syklus for syklus, slik maskinvaren gjør: raske lastere og kopibeskyttelser virker. 'disabled' svarer på C64s diskkommandoer direkte, mye raskere, og mange spill lastes ikke. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.initialtime": "Startklokke",
+		"setting.initialtime.about": "Hva datamaskinens klokke viser når C64 slås på, i sekunder siden 1970 (Unix-tid); den går deretter med maskinen. VICE tar sine tilfeldige tall fra den (mønsteret RAM-en holder når den slås på, og ventetiden før automatisk start), og det gjør også klokken i en kassett som har en. Standarden er 1. januar 2000. Dette er en innstilling, og ikke datamaskinens klokke, så en filmfil spilles av likt på hvilken som helst dag. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.p1port": "P1-port",
+		"setting.p1port.about": "Hvilken kontrollport P1s joystick er i; P2s er i den andre. De fleste spill leser joysticken i port 2. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.sid_model": "SID-modell",
+		"setting.sid_model.about": "Lydbrikken: 'default' er Modellens egen (6581 i C64, 8580 i C64C); 8580RD er en 8580 med digiforsterkningen. Den endrer lyden og det et program leser fra SID. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"slot.game": "Spill",
+		"slot.game.help": "Spillets filer: diskavbildninger (.d64, .g64, .x64, .d71, .d81), båndavbildninger (.t64, .tap), en kassett (.crt) eller et program (.prg, .p00). Den første er den som startes automatisk; de andre venter på sin tur i stasjon 8, for spill som ber om en ny disk (Forrige disk, Neste disk, Løs ut disk). Filene dine endres aldri: C64 skriver til kopier av dem i sitt minne, og Eksporter lagrede data skriver ut dem som er endret."
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Projede oyun dosyası yok.",
+		"error.not_started": "VICE '%1' ile başlamadı.",
+		"setting.autostart": "Kendiliğinden Başlat",
+		"setting.autostart.about": "'enabled', C64 açıldığında oyunu yükler ve çalıştırır, VICE'ın yaptığı gibi: bir disk ya da kaset için LOAD ve RUN yazar (kasetin PLAY tuşuna basarak) ya da bir programı doğrudan belleğe koyar. 'disabled', C64'ü READY istemine bırakır; oyunun diski sürücüde ya da kaseti datasette takılı olarak. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "Hangi C64, VICE'ın kurduğu gibi: özgün C64, C64C (sonraki kartı, 8580 SID'li), SX-64, PET64, C64 Games System, Japon C64; PAL (Avrupa) ya da NTSC (Amerika, Japonya). 'auto' olanlar, oyunun dosya adının dediği gibi PAL ya da NTSC'dir ('NTSC' adında geçiyorsa NTSC makinedir). Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.drive_true_emulation": "Gerçek Sürücü Öykünmesi",
+		"setting.drive_true_emulation.about": "'enabled', 1541 sürücüsünün kendi işlemcisini ve DOS'unu, donanımın yaptığı gibi döngü döngü çalıştırır: hızlı yükleyiciler ve kopya korumaları çalışır. 'disabled', C64'ün disk komutlarını doğrudan yanıtlar, çok daha hızlı; ama birçok oyun yüklenmez. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.initialtime": "Başlangıç Saati",
+		"setting.initialtime.about": "C64 açıldığında bilgisayarın saatinin gösterdiği zaman, 1970'ten itibaren saniye olarak (Unix zamanı); sonra makineyle birlikte çalışır. VICE rastgele sayılarını ondan alır (açıldığında RAM'in tuttuğu desen ve kendiliğinden başlatmadan önceki bekleme); bir kartuşun saati de öyle. Varsayılan 1 Ocak 2000'dir. Bu bir ayardır, bilgisayarınızın saati değil; böylece bir film herhangi bir günde aynı oynar. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.p1port": "P1 Portu",
+		"setting.p1port.about": "P1'in joystick'inin hangi kontrol portunda olduğu; P2'ninki diğerinde. Çoğu oyun joystick'i 2. porttan okur. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.sid_model": "SID Modeli",
+		"setting.sid_model.about": "Ses çipi: 'default' Model'in kendisinindir (C64'te 6581, C64C'de 8580); 8580RD, dijital güçlendirmeli bir 8580'dir. Sesi ve bir programın SID'den okuduğunu değiştirir. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"slot.game": "Oyun",
+		"slot.game.help": "Oyunun dosyaları: disk görüntüleri (.d64, .g64, .x64, .d71, .d81), kaset görüntüleri (.t64, .tap), bir kartuş (.crt) ya da bir program (.prg, .p00). İlki kendiliğinden başlatılandır; diğerleri 8 numaralı sürücüde sırasını bekler, başka disk isteyen oyunlar için (Önceki Disk, Sonraki Disk, Diski Çıkar). Dosyalarınız asla değiştirilmez: C64 belleğindeki kopyalarına yazar ve Export Save Data, değişenleri yazar."
+	}
+}

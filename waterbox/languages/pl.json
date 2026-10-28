@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "W projekcie nie ma pliku gry.",
+		"error.not_started": "VICE nie uruchomił się z '%1'.",
+		"setting.autostart": "Autostart",
+		"setting.autostart.about": "„enabled” wczytuje i uruchamia grę, gdy C64 się włącza, tak jak robi to VICE: wpisuje LOAD i RUN dla dysku albo taśmy (naciskając PLAY na magnetofonie), albo wkłada program prosto do pamięci. „disabled” zostawia C64 przy monicie READY, z dyskiem gry w napędzie albo taśmą w magnetofonie. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "Który C64, tak jak buduje go VICE: oryginalny C64, C64C (jego późniejsza płyta, z układem SID 8580), SX-64, PET64, C64 Games System, japoński C64; PAL (Europa) albo NTSC (Ameryka, Japonia). Wersje „auto” są PAL lub NTSC zależnie od nazwy pliku gry („NTSC” w nazwie robi maszynę NTSC). Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.drive_true_emulation": "Prawdziwa emulacja napędu",
+		"setting.drive_true_emulation.about": "„enabled” uruchamia własny procesor napędu 1541 i jego DOS, cykl po cyklu, tak jak sprzęt: szybkie loadery i zabezpieczenia kopiowania działają. „disabled” odpowiada na polecenia dyskowe C64 bezpośrednio, znacznie szybciej, a wiele gier się nie wczytuje. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.initialtime": "Zegar startowy",
+		"setting.initialtime.about": "Co pokazuje zegar komputera po włączeniu C64, w sekundach od 1970 (czas Unix); potem biegnie z maszyną. VICE bierze z niego swoje liczby losowe (wzór, jaki pamięć RAM ma po włączeniu, i czekanie przed autostartem), i tak samo robi zegar kartridża, jeśli go ma. Domyślnie jest to 1 stycznia 2000. To jest ustawienie, a nie zegar twojego komputera, dzięki czemu nagranie odtwarza się tak samo w każdym dniu. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.p1port": "Port P1",
+		"setting.p1port.about": "W którym porcie sterującym jest joystick P1; joystick P2 jest w drugim. Większość gier czyta joystick w porcie 2. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.sid_model": "Model SID",
+		"setting.sid_model.about": "Układ dźwiękowy: „default” to ten z Modelu (6581 w C64, 8580 w C64C); 8580RD to 8580 z digi boost. Zmienia dźwięk i to, co program odczytuje z SID-a. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"slot.game": "Gra",
+		"slot.game.help": "Pliki gry: obrazy dyskietek (.d64, .g64, .x64, .d71, .d81), obrazy taśm (.t64, .tap), kartridż (.crt) albo program (.prg, .p00). Pierwszy jest uruchamiany automatycznie; pozostałe czekają na swoją kolej w napędzie 8, dla gier, które proszą o kolejny dysk (Previous Disk, Next Disk, Eject Disk). Twoje pliki nigdy nie są zmieniane: C64 zapisuje do kopii w swojej pamięci, a Export Save Data zapisuje te, które zmienił."
+	}
+}

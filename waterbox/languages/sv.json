@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Ingen spelfil finns i projektet.",
+		"error.not_started": "VICE startade inte med '%1'.",
+		"setting.autostart": "Autostart",
+		"setting.autostart.about": "'enabled' laddar och kör spelet när C64:an slås på, så som VICE gör det: den skriver LOAD och RUN för en diskett eller ett band (genom att trycka på bandspelarens PLAY), eller lägger ett program direkt i minnet. 'disabled' lämnar C64:an vid sin READY-prompt med spelets diskett i enheten eller bandet i bandspelaren. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.c64_model": "Modell",
+		"setting.c64_model.about": "Vilken C64, så som VICE bygger den: den ursprungliga C64:an, C64C (dess senare kort, med SID 8580), SX-64, PET64, C64 Games System, den japanska C64:an; PAL (Europa) eller NTSC (Amerika, Japan). De 'auto'-valen är PAL eller NTSC efter vad spelets filnamn säger ('NTSC' i det gör en NTSC-maskin). Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.drive_true_emulation": "Verklig diskettenhetsemulering",
+		"setting.drive_true_emulation.about": "'enabled' kör 1541-enhetens egen processor och dess DOS, cykel för cykel, precis som hårdvaran gör: snabbladdare och kopieringsskydd fungerar. 'disabled' svarar på C64:ans diskkommandon direkt, mycket snabbare, och många spel laddas inte. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.initialtime": "Startklocka",
+		"setting.initialtime.about": "Vad datorns klocka visar när C64:an slås på, i sekunder sedan 1970 (Unixtid); den går sedan med maskinen. VICE tar sina slumptal från den (mönstret RAM-minnet har när det slås på, och väntan före autostart), och det gör också klockan i en patron som har en. Standardvärdet är den 1 januari 2000. Det här är en inställning, och inte din dators klocka, så att en inspelning spelas upp likadant vilken dag som helst. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.p1port": "P1-port",
+		"setting.p1port.about": "Vilken kontrollport P1:s joystick sitter i; P2:s sitter i den andra. De flesta spel läser joysticken i port 2. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.sid_model": "SID-modell",
+		"setting.sid_model.about": "Ljudchipet: 'default' är Modellens egen (6581 i C64:an, 8580 i C64C); 8580RD är en 8580 med digiförstärkningen. Det ändrar ljudet och vad ett program läser från SID:en. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"slot.game": "Spel",
+		"slot.game.help": "Spelets filer: skivavbilder (.d64, .g64, .x64, .d71, .d81), bandavbilder (.t64, .tap), en patron (.crt) eller ett program (.prg, .p00). Den första är den som startas automatiskt; de andra väntar på sin tur i enhet 8, för de spel som begär en annan diskett (Föregående diskett, Nästa diskett, Mata ut diskett). Dina filer ändras aldrig: C64:an skriver till kopior av dem i sitt minne, och Exportera sparad data skriver ut de som den ändrade."
+	}
+}

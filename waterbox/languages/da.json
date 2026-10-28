@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Der er ingen spilfil i projektet.",
+		"error.not_started": "VICE startede ikke med '%1'.",
+		"setting.autostart": "Automatisk start",
+		"setting.autostart.about": "'enabled' indlæser og kører spillet, når C64 tændes, sådan som VICE gør det: den skriver LOAD og RUN for en disk eller et bånd (ved at trykke båndets PLAY), eller lægger et program direkte i hukommelsen. 'disabled' lader C64 stå ved sin READY-prompt, med spillets disk i drevet eller båndet i datasetten. Den hører til maskinen, så en optagelse skal have samme værdi.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "Hvilken C64, sådan som VICE bygger den: den oprindelige C64, C64C (dens senere kort, med SID 8580), SX-64, PET64, C64 Games System, den japanske C64; PAL (Europa) eller NTSC (Amerika, Japan). De 'auto'-valg er PAL eller NTSC, alt efter hvad spillets filnavn siger ('NTSC' i det gør en NTSC-maskine). Den hører til maskinen, så en optagelse skal have samme værdi.",
+		"setting.drive_true_emulation": "Ægte drevemulering",
+		"setting.drive_true_emulation.about": "'enabled' kører 1541-drevets egen processor og dets DOS, cyklus for cyklus, sådan som hardwaren gør: hurtige indlæsere og kopibeskyttelser virker. 'disabled' besvarer C64'ens diskkommandoer direkte, meget hurtigere, og mange spil indlæses ikke. Den hører til maskinen, så en optagelse skal have samme værdi.",
+		"setting.initialtime": "Startur",
+		"setting.initialtime.about": "Hvad computerens ur siger, når C64 tændes, i sekunder siden 1970 (Unix-tid); det løber så med maskinen. VICE tager sine tilfældige tal fra det (mønsteret RAM'en har, når den tændes, og ventetiden før automatisk start), og det samme gør uret på en patron, der har et. Standarden er 1. januar 2000. Dette er en indstilling og ikke din computers ur, så en optagelse afspilles ens på enhver dag. Den hører til maskinen, så en optagelse skal have samme værdi.",
+		"setting.p1port": "P1-port",
+		"setting.p1port.about": "Hvilken controllerport P1's joystick sidder i; P2's sidder i den anden. De fleste spil læser joysticket i port 2. Den hører til maskinen, så en optagelse skal have samme værdi.",
+		"setting.sid_model": "SID-model",
+		"setting.sid_model.about": "Lydchippen: 'default' er Modellens egen (6581 i C64, 8580 i C64C); 8580RD er en 8580 med digi-boost. Den ændrer lyden og det, et program læser fra SID. Den hører til maskinen, så en optagelse skal have samme værdi.",
+		"slot.game": "Spil",
+		"slot.game.help": "Spillets filer: diskbilleder (.d64, .g64, .x64, .d71, .d81), båndbilleder (.t64, .tap), en patron (.crt) eller et program (.prg, .p00). Den første er den, der startes automatisk; de andre venter på deres tur i drev 8, til spil der beder om en anden disk (Previous Disk, Next Disk, Eject Disk). Dine filer ændres aldrig: C64 skriver til kopier af dem i sin hukommelse, og Eksportér gemte data skriver de ud, den har ændret."
+	}
+}

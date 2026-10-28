@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Không có tệp trò chơi nào trong dự án.",
+		"error.not_started": "VICE không khởi động với '%1'.",
+		"setting.autostart": "Tự khởi động",
+		"setting.autostart.about": "'enabled' tải và chạy trò chơi khi C64 được bật, như VICE vẫn làm: nó gõ LOAD và RUN cho một đĩa hoặc một băng (nhấn PLAY của băng), hoặc đặt thẳng một chương trình vào bộ nhớ. 'disabled' để C64 ở dấu nhắc READY với đĩa của trò chơi trong ổ hoặc băng trong đầu đọc băng. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "C64 nào, như VICE dựng nó: C64 gốc, C64C (bo mạch sau của nó, với SID 8580), SX-64, PET64, C64 Games System, C64 Nhật Bản; PAL (Châu Âu) hoặc NTSC (Mỹ, Nhật Bản). Các loại 'auto' là PAL hoặc NTSC tùy theo tên tệp của trò chơi ('NTSC' trong tên sẽ tạo máy NTSC). Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.drive_true_emulation": "Mô phỏng ổ đĩa thật",
+		"setting.drive_true_emulation.about": "'enabled' chạy bộ xử lý riêng của ổ 1541 và DOS của nó, từng chu kỳ, như phần cứng làm: các trình tải nhanh và cơ chế bảo vệ sao chép hoạt động. 'disabled' trả lời trực tiếp các lệnh đĩa của C64, nhanh hơn nhiều, và nhiều trò chơi không tải được. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.initialtime": "Đồng hồ khi bắt đầu",
+		"setting.initialtime.about": "Đồng hồ của máy tính hiển thị gì khi C64 được bật, tính bằng giây từ năm 1970 (thời gian Unix); sau đó nó chạy cùng máy. VICE lấy số ngẫu nhiên từ đó (mẫu mà RAM giữ khi được bật, và thời gian chờ trước khi tự khởi động), và đồng hồ của một băng có đồng hồ cũng vậy. Mặc định là ngày 1 tháng 1 năm 2000. Đây là một thiết lập, không phải đồng hồ của máy tính bạn, để một bản ghi phát lại giống nhau vào bất kỳ ngày nào. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.p1port": "Cổng P1",
+		"setting.p1port.about": "Cần điều khiển của P1 nằm ở cổng điều khiển nào; của P2 nằm ở cổng kia. Đa số trò chơi đọc cần điều khiển ở cổng 2. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.sid_model": "Model SID",
+		"setting.sid_model.about": "Chip âm thanh: 'default' là của Model (6581 trong C64, 8580 trong C64C); 8580RD là 8580 với bộ tăng âm digi. Nó làm thay đổi âm thanh và thứ mà chương trình đọc từ SID. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"slot.game": "Trò chơi",
+		"slot.game.help": "Các tệp của trò chơi: ảnh đĩa (.d64, .g64, .x64, .d71, .d81), ảnh băng (.t64, .tap), một băng ROM (.crt) hoặc một chương trình (.prg, .p00). Tệp đầu tiên là tệp được tự khởi động; các tệp khác chờ đến lượt trong ổ 8, cho các trò chơi yêu cầu đĩa khác (Previous Disk, Next Disk, Eject Disk). Các tệp của bạn không bao giờ bị thay đổi: C64 ghi vào bản sao của chúng trong bộ nhớ, và Export Save Data ghi ra những tệp mà nó đã thay đổi."
+	}
+}

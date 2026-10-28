@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Er staat geen spelbestand in het project.",
+		"error.not_started": "VICE is niet gestart met '%1'.",
+		"setting.autostart": "Automatisch starten",
+		"setting.autostart.about": "'enabled' laadt het spel en start het wanneer de C64 wordt aangezet, zoals VICE het doet: het typt LOAD en RUN voor een diskette of een band (door PLAY op de band in te drukken), of zet een programma meteen in het geheugen. 'disabled' laat de C64 staan op zijn READY-prompt, met de diskette van het spel in het station of de band in de datasette. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "Welke C64, zoals VICE hem bouwt: de originele C64, de C64C (zijn latere printplaat, met de 8580 SID), de SX-64, de PET64, het C64 Games System, de Japanse C64; PAL (Europa) of NTSC (Amerika, Japan). De 'auto'-varianten zijn PAL of NTSC, afhankelijk van de bestandsnaam van het spel ('NTSC' erin maakt een NTSC-machine). Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.drive_true_emulation": "Echte stationsemulatie",
+		"setting.drive_true_emulation.about": "'enabled' draait de eigen processor van het 1541-station en zijn DOS, cyclus voor cyclus, zoals de hardware dat doet: snelle laders en kopieerbeveiligingen werken. 'disabled' beantwoordt de schijfcommando's van de C64 rechtstreeks, veel sneller, en veel spellen laden dan niet. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.initialtime": "Startklok",
+		"setting.initialtime.about": "Wat de klok van de computer aangeeft wanneer de C64 wordt aangezet, in seconden sinds 1970 (Unix-tijd); daarna loopt hij mee met de machine. VICE haalt zijn willekeurige getallen eruit (het patroon dat het RAM bevat bij het aanzetten, en de wachttijd voor het automatisch starten), en dat geldt ook voor de klok van een cartridge die er een heeft. De standaard is 1 januari 2000. Dit is een instelling en niet de klok van je computer, zodat een movie op elke dag hetzelfde afspeelt. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.p1port": "Poort van P1",
+		"setting.p1port.about": "In welke bedieningspoort de joystick van P1 zit; die van P2 zit in de andere. De meeste spellen lezen de joystick in poort 2. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.sid_model": "SID-model",
+		"setting.sid_model.about": "De geluidschip: 'default' is die van het Model zelf (de 6581 in de C64, de 8580 in de C64C); 8580RD is een 8580 met de digi-boost. Het verandert het geluid en wat een programma uit de SID leest. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"slot.game": "Spel",
+		"slot.game.help": "De bestanden van het spel: schijfkopieën (.d64, .g64, .x64, .d71, .d81), bandkopieën (.t64, .tap), een cartridge (.crt) of een programma (.prg, .p00). De eerste is de bestand dat automatisch start; de andere wachten op hun beurt in station 8, voor de spellen die om een andere diskette vragen (Previous Disk, Next Disk, Eject Disk). Je bestanden worden nooit veranderd: de C64 schrijft naar kopieën ervan in zijn geheugen, en Export Save Data schrijft de bestanden uit die het heeft veranderd."
+	}
+}

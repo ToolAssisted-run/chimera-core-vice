@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Nel progetto non c'è nessun file di gioco.",
+		"error.not_started": "VICE non è partito con '%1'.",
+		"setting.autostart": "Avvio automatico",
+		"setting.autostart.about": "'enabled' carica e avvia il gioco all'accensione del C64, come fa VICE: digita LOAD e RUN per un disco o un nastro (premendo PLAY sul registratore), oppure mette un programma direttamente in memoria. 'disabled' lascia il C64 al suo prompt READY, con il disco del gioco nel drive o il nastro nel registratore. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.c64_model": "Modello",
+		"setting.c64_model.about": "Quale C64, come lo costruisce VICE: il C64 originale, il C64C (la sua scheda successiva, con il SID 8580), lo SX-64, il PET64, il C64 Games System, il C64 giapponese; PAL (Europa) oppure NTSC (America, Giappone). Quelli 'auto' sono PAL o NTSC a seconda di ciò che dice il nome del file del gioco ('NTSC' nel nome rende una macchina NTSC). Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.drive_true_emulation": "Emulazione reale del drive",
+		"setting.drive_true_emulation.about": "'enabled' fa girare il processore del drive 1541 e il suo DOS, ciclo per ciclo, come fa l'hardware: i caricatori veloci e le protezioni da copia funzionano. 'disabled' risponde direttamente ai comandi del disco del C64, molto più veloce, e molti giochi non si caricano. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.initialtime": "Orologio di avvio",
+		"setting.initialtime.about": "Che ora dice l'orologio del computer quando il C64 viene acceso, in secondi dal 1970 (ora Unix); poi va avanti con la macchina. VICE ne prende i suoi numeri casuali (la configurazione che la RAM assume all'accensione, e l'attesa prima dell'avvio automatico), e così fa l'orologio di una cartuccia che ne ha uno. Il valore predefinito è il primo gennaio 2000. È un'impostazione e non l'orologio del tuo computer, così un filmato si riproduce allo stesso modo in qualsiasi giorno. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.p1port": "Porta di P1",
+		"setting.p1port.about": "In quale porta di controllo è il joystick di P1; quello di P2 è nell'altra. La maggior parte dei giochi legge il joystick nella porta 2. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.sid_model": "Modello SID",
+		"setting.sid_model.about": "Il chip audio: 'default' è quello del Modello (il 6581 nel C64, l'8580 nel C64C); 8580RD è un 8580 con il boost digitale. Cambia il suono e ciò che un programma legge dal SID. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"slot.game": "Gioco",
+		"slot.game.help": "I file del gioco: immagini di dischi (.d64, .g64, .x64, .d71, .d81), immagini di nastri (.t64, .tap), una cartuccia (.crt) o un programma (.prg, .p00). Il primo è quello avviato automaticamente; gli altri aspettano il loro turno nel drive 8, per i giochi che chiedono un altro disco (Disco precedente, Disco successivo, Espelli disco). I tuoi file non vengono mai modificati: il C64 scrive su copie di essi nella sua memoria, ed Esporta dati di salvataggio scrive quelli che ha modificato."
+	}
+}

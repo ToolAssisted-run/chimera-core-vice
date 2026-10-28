@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "项目中没有游戏文件。",
+		"error.not_started": "VICE 未能以“%1”启动。",
+		"setting.autostart": "自动启动",
+		"setting.autostart.about": "“enabled”会在开启 C64 时加载并运行游戏，与 VICE 的做法相同：对于磁盘或磁带，它会键入 LOAD 和 RUN（对于磁带，即按下磁带的 PLAY），或直接将程序放入内存。“disabled”则让 C64 停在 READY 提示符处，游戏的磁盘留在驱动器中，或磁带留在磁带机中。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.c64_model": "机型",
+		"setting.c64_model.about": "哪种 C64，即 VICE 所构建的机型：原版 C64、C64C（其后期主板，配 8580 SID）、SX-64、PET64、C64 Games System、日版 C64；PAL（欧洲）或 NTSC（美洲、日本）。标为“auto”的机型会根据游戏的文件名选择 PAL 或 NTSC（文件名中含有“NTSC”即为 NTSC 机型）。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.drive_true_emulation": "真实驱动器模拟",
+		"setting.drive_true_emulation.about": "“enabled”会逐个周期运行 1541 驱动器自己的处理器及其 DOS，与硬件的做法相同：快速加载器和复制保护都能正常工作。“disabled”则直接应答 C64 的磁盘命令，速度快得多，但许多游戏无法加载。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.initialtime": "起始时钟",
+		"setting.initialtime.about": "C64 开机时计算机时钟显示的时间，以自 1970 年起的秒数（Unix 时间）表示；此后它随机器一起运行。VICE 从中获取随机数（开机时 RAM 的内容图样，以及自动启动前的等待时间），带有时钟的卡带也从中获取。默认为 2000 年 1 月 1 日。这是一项设置，而不是您电脑的时钟，因此录像在任何一天回放结果都相同。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.p1port": "P1 端口",
+		"setting.p1port.about": "P1 的操纵杆插在哪个控制端口中；P2 的则插在另一个端口中。大多数游戏从端口 2 读取操纵杆。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.sid_model": "SID 型号",
+		"setting.sid_model.about": "声音芯片：“default”为机型自带的（C64 为 6581，C64C 为 8580）；8580RD 是带有数字增强（digi boost）的 8580。它会改变声音，以及程序从 SID 读取到的内容。它属于机型的一部分，因此录像需要相同的值。",
+		"slot.game": "游戏",
+		"slot.game.help": "游戏的文件：磁盘镜像（.d64、.g64、.x64、.d71、.d81）、磁带镜像（.t64、.tap）、卡带（.crt）或程序（.prg、.p00）。第一个会被自动启动；其余的在 8 号驱动器中依次等待，供要求更换磁盘的游戏使用（上一张磁盘、下一张磁盘、弹出磁盘）。您的文件从不会被改动：C64 写入的是它们在内存中的副本，而“导出存档数据”会写出其中被改动过的文件。"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Tidak ada file game dalam proyek.",
+		"error.not_started": "VICE tidak berhasil dimulai dengan '%1'.",
+		"setting.autostart": "Mulai Otomatis",
+		"setting.autostart.about": "'enabled' memuat dan menjalankan game ketika C64 dinyalakan, seperti yang dilakukan VICE: ia mengetik LOAD dan RUN untuk disk atau pita (menekan PLAY pada pita), atau menaruh program langsung di memori. 'disabled' membiarkan C64 pada prompt READY-nya dengan disk game di drive atau pita di datasette. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "C64 mana, seperti yang dibangun VICE: C64 asli, C64C (papan belakangannya, dengan SID 8580), SX-64, PET64, C64 Games System, C64 Jepang; PAL (Eropa) atau NTSC (Amerika, Jepang). Yang 'auto' adalah PAL atau NTSC menurut nama file game ('NTSC' di namanya membuat mesin NTSC). Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.drive_true_emulation": "Emulasi Drive Sebenarnya",
+		"setting.drive_true_emulation.about": "'enabled' menjalankan prosesor dan DOS milik drive 1541 sendiri, siklus demi siklus, seperti perangkat kerasnya: pemuat cepat dan proteksi salin bekerja. 'disabled' menjawab perintah disk C64 secara langsung, jauh lebih cepat, dan banyak game tidak dapat dimuat. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.initialtime": "Jam Awal",
+		"setting.initialtime.about": "Apa yang ditunjukkan jam komputer ketika C64 dinyalakan, dalam detik sejak 1970 (waktu Unix); setelah itu ia berjalan bersama mesin. VICE mengambil bilangan acaknya darinya (pola yang dipegang RAM ketika dinyalakan, dan jeda sebelum mulai otomatis), dan begitu pula jam kartrid yang memilikinya. Bawaannya adalah 1 Januari 2000. Ini adalah pengaturan, bukan jam komputer Anda, sehingga rekaman diputar dengan sama pada hari apa pun. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.p1port": "Port P1",
+		"setting.p1port.about": "Di port kontrol mana joystick P1 berada; joystick P2 berada di port lain. Kebanyakan game membaca joystick di port 2. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.sid_model": "Model SID",
+		"setting.sid_model.about": "Chip suara: 'default' adalah milik Model (6581 pada C64, 8580 pada C64C); 8580RD adalah 8580 dengan penguat digi. Ini mengubah suara dan apa yang dibaca program dari SID. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"slot.game": "Game",
+		"slot.game.help": "File game: citra disk (.d64, .g64, .x64, .d71, .d81), citra pita (.t64, .tap), kartrid (.crt), atau program (.prg, .p00). Yang pertama dijalankan otomatis; yang lain menunggu gilirannya di drive 8, untuk game yang meminta disk lain (Previous Disk, Next Disk, Eject Disk). File Anda tidak pernah diubah: C64 menulis ke salinannya di memori, dan Ekspor Data Simpanan menulis keluar yang diubahnya."
+	}
+}

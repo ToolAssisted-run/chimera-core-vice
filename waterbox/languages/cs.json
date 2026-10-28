@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "V projektu není soubor hry.",
+		"error.not_started": "VICE se nespustil s „%1“.",
+		"setting.autostart": "Automatické spuštění",
+		"setting.autostart.about": "„enabled“ načte a spustí hru, když se C64 zapne, jak to dělá VICE: napíše LOAD a RUN pro disk nebo pásku (stiskne PLAY na magnetofonu), nebo vloží program rovnou do paměti. „disabled“ nechá C64 na výzvě READY s diskem hry v mechanice nebo páskou v datasette. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.c64_model": "Model",
+		"setting.c64_model.about": "Které C64, jak ho staví VICE: původní C64, C64C (jeho pozdější deska s SID 8580), SX-64, PET64, C64 Games System, japonské C64; PAL (Evropa), nebo NTSC (Amerika, Japonsko). Volby „auto“ jsou PAL nebo NTSC podle názvu souboru hry („NTSC“ v něm dělá stroj NTSC). Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.drive_true_emulation": "Skutečná emulace mechaniky",
+		"setting.drive_true_emulation.about": "„enabled“ běží vlastní procesor mechaniky 1541 a její DOS cyklus po cyklu, jak to dělá hardware: rychlé načítače a ochrany proti kopírování fungují. „disabled“ odpovídá na disketové příkazy C64 přímo, mnohem rychleji, a mnoho her se nenačte. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.initialtime": "Počáteční hodiny",
+		"setting.initialtime.about": "Co ukazují hodiny počítače, když se C64 zapne, v sekundách od roku 1970 (Unix time); pak běží se strojem. VICE z nich bere svá náhodná čísla (vzor, který drží RAM při zapnutí, a čekání před automatickým spuštěním), a stejně tak hodiny kazety, pokud nějaké má. Výchozí je 1. ledna 2000. Je to nastavení, a ne hodiny tvého počítače, aby se film přehrál stejně kterýkoli den. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.p1port": "Port P1",
+		"setting.p1port.about": "Ve kterém řídicím portu je joystick hráče P1; hráče P2 je v tom druhém. Většina her čte joystick v portu 2. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.sid_model": "Model SID",
+		"setting.sid_model.about": "Zvukový čip: „default“ je model stroje (6581 v C64, 8580 v C64C); 8580RD je 8580 s digi boostem. Mění zvuk a to, co program čte z SID. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"slot.game": "Hra",
+		"slot.game.help": "Soubory hry: obrazy disků (.d64, .g64, .x64, .d71, .d81), obrazy pásek (.t64, .tap), kazeta (.crt), nebo program (.prg, .p00). První se spustí automaticky; ostatní čekají na svou řadu v mechanice 8, pro hry, které žádají další disk (Previous Disk, Next Disk, Eject Disk). Tvé soubory se nikdy nemění: C64 zapisuje do jejich kopií ve své paměti a Export Save Data zapíše ty, které změnilo."
+	}
+}

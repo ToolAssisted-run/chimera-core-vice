@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "專案中沒有遊戲檔案。",
+		"error.not_started": "VICE 無法以「%1」啟動。",
+		"setting.autostart": "自動啟動",
+		"setting.autostart.about": "「enabled」會在 C64 開機時載入並執行遊戲,與 VICE 的做法相同:對磁碟或磁帶輸入 LOAD 與 RUN(磁帶則按下 PLAY),或直接把程式放入記憶體。「disabled」讓 C64 停在 READY 提示符,磁碟在磁碟機中,或磁帶在資料錄放機中。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.c64_model": "型號",
+		"setting.c64_model.about": "哪一台 C64,依 VICE 的建置:原版 C64、C64C(後期的主機板,配 8580 SID)、SX-64、PET64、C64 Games System、日版 C64;PAL(歐洲)或 NTSC(美國、日本)。「auto」的型號依遊戲的檔名決定為 PAL 或 NTSC(檔名中含「NTSC」則為 NTSC 機器)。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.drive_true_emulation": "真實磁碟機模擬",
+		"setting.drive_true_emulation.about": "「enabled」會逐週期執行 1541 磁碟機自己的處理器與其 DOS,與硬體相同:快速載入器與複製保護才能運作。「disabled」直接回應 C64 的磁碟指令,快得多,但許多遊戲無法載入。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.initialtime": "開機時鐘",
+		"setting.initialtime.about": "C64 開機時電腦時鐘顯示的時間,以 1970 年起的秒數計(Unix 時間);之後隨機器運行。VICE 以它產生亂數(開機時 RAM 的圖樣,以及自動啟動前的等待時間),擁有時鐘的卡匣也是如此。預設為 2000 年 1 月 1 日。這是一個設定,而不是你電腦的時鐘,使錄影在任何一天播放都相同。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.p1port": "P1 連接埠",
+		"setting.p1port.about": "P1 的搖桿插在哪一個控制連接埠;P2 的插在另一個。大多數遊戲從連接埠 2 讀取搖桿。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.sid_model": "SID 型號",
+		"setting.sid_model.about": "聲音晶片:「default」是型號自己的(C64 為 6581,C64C 為 8580);8580RD 是帶有數位增強的 8580。它會改變聲音,以及程式從 SID 讀取的內容。它屬於機器的一部分,因此錄影需要相同的值。",
+		"slot.game": "遊戲",
+		"slot.game.help": "遊戲的檔案:磁碟映像(.d64、.g64、.x64、.d71、.d81)、磁帶映像(.t64、.tap)、卡匣(.crt)或程式(.prg、.p00)。第一個會自動啟動;其他的依序等待在磁碟機 8 中,供要求換碟的遊戲使用(上一張磁碟、下一張磁碟、退出磁碟)。你的檔案永遠不會被更改:C64 寫入的是記憶體中的副本,「匯出存檔資料」會寫出被它更改過的檔案。"
+	}
+}

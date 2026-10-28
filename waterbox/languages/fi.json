@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "Projektissa ei ole pelitiedostoa.",
+		"error.not_started": "VICE ei käynnistynyt tiedostolla '%1'.",
+		"setting.autostart": "Automaattinen käynnistys",
+		"setting.autostart.about": "'enabled' lataa ja käynnistää pelin, kun C64 kytketään päälle, kuten VICE tekee: se kirjoittaa LOAD- ja RUN-komennot levylle tai nauhalle (painamalla nauhurin PLAY-painiketta), tai asettaa ohjelman suoraan muistiin. 'disabled' jättää C64:n READY-kehotteeseen, pelin levy asemaan tai nauha datasetteen. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.c64_model": "Malli",
+		"setting.c64_model.about": "Mikä C64, sellaisena kuin VICE sen rakentaa: alkuperäinen C64, C64C (sen myöhempi piirilevy, jossa on 8580 SID), SX-64, PET64, C64 Games System, japanilainen C64; PAL (Eurooppa) tai NTSC (Amerikka, Japani). 'auto'-mallit ovat PAL tai NTSC pelin tiedostonimen mukaan (nimessä oleva 'NTSC' tekee NTSC-koneen). Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.drive_true_emulation": "Todellinen levyaseman jäljitys",
+		"setting.drive_true_emulation.about": "'enabled' ajaa 1541-aseman oman suorittimen ja sen DOSin jakso kerrallaan, kuten laitteisto tekee: nopeat lataajat ja kopiosuojaukset toimivat. 'disabled' vastaa C64:n levykomentoihin suoraan, paljon nopeammin, ja monet pelit eivät lataudu. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.initialtime": "Alkukello",
+		"setting.initialtime.about": "Mitä tietokoneen kello näyttää C64:n kytkemisen jälkeen, sekunteina vuodesta 1970 (Unix-aika); se käy sitten koneen mukana. VICE ottaa siitä satunnaislukunsa (kuvion, jonka RAM sisältää kytkettäessä, ja odotuksen ennen automaattista käynnistystä), ja samoin tekee kasetin kello, jos sellainen on. Oletus on 1. tammikuuta 2000. Tämä on asetus eikä tietokoneesi kello, jotta tallenne toistuu samalla tavalla joka päivä. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.p1port": "P1-portti",
+		"setting.p1port.about": "Mihin ohjainporttiin P1:n ohjaussauva on kytketty; P2:n on toisessa. Useimmat pelit lukevat ohjaussauvan portista 2. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.sid_model": "SID-malli",
+		"setting.sid_model.about": "Äänipiiri: 'default' on Mallin oma (C64:ssä 6581, C64C:ssä 8580); 8580RD on 8580 digi-vahvistuksella. Se muuttaa ääntä ja sitä, mitä ohjelma lukee SID:stä. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"slot.game": "Peli",
+		"slot.game.help": "Pelin tiedostot: levykuvat (.d64, .g64, .x64, .d71, .d81), nauhakuvat (.t64, .tap), kasetti (.crt) tai ohjelma (.prg, .p00). Ensimmäinen on se, joka käynnistyy automaattisesti; muut odottavat vuoroaan asemassa 8 pelien varalta, jotka pyytävät toista levyä (Edellinen levy, Seuraava levy, Poista levy). Tiedostojasi ei koskaan muuteta: C64 kirjoittaa niiden kopioihin muistissaan, ja Vie tallennustiedot kirjoittaa ulos ne, jotka se muutti."
+	}
+}

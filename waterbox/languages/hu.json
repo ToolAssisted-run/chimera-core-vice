@@ -1,0 +1,20 @@
+{
+	"texts": {
+		"error.no_file": "A projektben nincs játékfájl.",
+		"error.not_started": "A VICE nem indult el ezzel: „%1”.",
+		"setting.autostart": "Automatikus indítás",
+		"setting.autostart.about": "Az „enabled” betölti és elindítja a játékot, amikor a C64 bekapcsol, ahogyan a VICE teszi: LOAD és RUN parancsot gépel lemezhez vagy szalaghoz (megnyomva a magnó PLAY gombját), vagy egyenesen a memóriába tesz egy programot. A „disabled” a C64-et a READY promptnál hagyja, a játék lemezével a meghajtóban vagy a szalaggal a magnóban. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.c64_model": "Típus",
+		"setting.c64_model.about": "Melyik C64, ahogyan a VICE építi: az eredeti C64, a C64C (a későbbi lapja, 8580-as SID-del), az SX-64, a PET64, a C64 Games System, a japán C64; PAL (Európa) vagy NTSC (Amerika, Japán). Az „auto” változatok PAL vagy NTSC attól függően, mit mond a játék fájlneve („NTSC” a nevében NTSC gépet csinál). A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.drive_true_emulation": "Valódi meghajtóemuláció",
+		"setting.drive_true_emulation.about": "Az „enabled” a 1541-es meghajtó saját processzorát és DOS-át futtatja, ciklusról ciklusra, ahogyan a hardver: a gyors betöltők és a másolásvédelmek működnek. A „disabled” közvetlenül válaszol a C64 lemezparancsaira, sokkal gyorsabban, és sok játék nem tölt be. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.initialtime": "Kezdő óra",
+		"setting.initialtime.about": "Mit mutat a számítógép órája, amikor a C64 bekapcsol, másodpercben 1970 óta (Unix-idő); utána a géppel fut. A VICE ebből veszi a véletlenszámait (a RAM bekapcsoláskor mutatott mintázatát és az automatikus indítás előtti várakozást), és ugyanígy egy kártya órája is, ha van. Az alapérték 2000. január 1. Ez egy beállítás, nem a számítógéped órája, hogy egy felvétel bármelyik napon ugyanúgy játszódjon vissza. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.p1port": "P1 port",
+		"setting.p1port.about": "Melyik vezérlőportban van a P1 joystickja; a P2-é a másikban. A legtöbb játék a 2. portban lévő joysticket olvassa. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.sid_model": "SID típusa",
+		"setting.sid_model.about": "A hangchip: a „default” a Típus saját (a C64-ben a 6581, a C64C-ben a 8580); az 8580RD egy 8580 digitális erősítéssel. Megváltoztatja a hangot és azt, amit a program a SID-ből olvas. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"slot.game": "Játék",
+		"slot.game.help": "A játék fájljai: lemezképek (.d64, .g64, .x64, .d71, .d81), szalagképek (.t64, .tap), kazetta (.crt) vagy program (.prg, .p00). Az első az, amely automatikusan elindul; a többi a 8-as meghajtóban vár sorára, azoknak a játékoknak, amelyek másik lemezt kérnek (Előző lemez, Következő lemez, Lemez kidobása). A fájljaid sosem változnak: a C64 a memóriájában lévő másolataikba ír, és a Mentési adatok exportálása kiírja azokat, amelyeket megváltoztatott."
+	}
+}
