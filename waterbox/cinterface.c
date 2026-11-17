@@ -24,6 +24,12 @@
 
 #include "libretro.h"
 
+/* this core's windows in Chimera's Emulator menu: miniBox's ready-made Export
+ * Save Data, built on its exports (Chimera has no tool of its own for a core,
+ * Chimera issue 610) */
+#define WBX_WINDOWS_IMPLEMENTATION
+#include <waterbox_windows.h>
+
 /* The three of VICE's functions the controls use. They are declared here
  * rather than taken from VICE's headers: those include upstream's
  * sysconfig.h, which, for a libretro build, turns the C library's file
